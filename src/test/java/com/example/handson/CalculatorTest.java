@@ -23,5 +23,36 @@ public class CalculatorTest {
     Calculator calc = new Calculator();
     assertEquals(6.0, calc.add(1.0, 2.0, 3.0));
   }
-    
+
+  @Test
+  public void testAddThreeValuesWhenAIsLessThanZero() {
+    Calculator calc = new Calculator();
+    assertThrows(IllegalArgumentException.class, () -> {
+      calc.add(-1.0, 2.0, 3.0);
+    });
+  }
+
+  @Test
+  public void testAddThreeValuesWhenBIsGreaterThanTen() {
+    Calculator calc = new Calculator();
+    assertThrows(IllegalArgumentException.class, () -> {
+      calc.add(1.0, 11.0, 3.0);
+    });
+  }
+
+  @Test
+  public void testAddThreeValuesWhenCIsGreaterThanTen() {
+    Calculator calc = new Calculator();
+    assertThrows(IllegalArgumentException.class, () -> {
+      calc.add(1.0, 2.0, 11.0);
+    });
+  }
+
+  @Test
+  public void testAddThreeValuesAtBoundaryValues() {
+    Calculator calc = new Calculator();
+    assertEquals(30.0, calc.add(10.0, 10.0, 10.0));
+    assertEquals(0.0, calc.add(0.0, 0.0, 0.0));
+  }
+  
 }
