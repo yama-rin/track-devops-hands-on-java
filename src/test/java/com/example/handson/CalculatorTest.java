@@ -20,7 +20,7 @@ public class CalculatorTest {
 
   @Test
   public void testAddThreeValues() {
-    Calculater calc = new Calculator();
+    Calculator calc = new Calculator();
     assertEquals(6.0, calc.add(1.0, 2.0, 3.0));
   }
     
